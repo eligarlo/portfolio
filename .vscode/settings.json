@@ -1,0 +1,16 @@
+{
+	// Editor
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+
+	// Formatter
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"javascript.updateImportsOnFileMove.enabled": "always",
+	"redhat.telemetry.enabled": false,
+	"cSpell.language": "en,es",
+	"eslint.format.enable": true,
+	"emmet.triggerExpansionOnTab": true
+}
