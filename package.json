@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@codesandbox/sandpack-react": "^2.13.5",
     "@prisma/client": "^5.10.2",
     "@tailwindcss/typography": "^0.5.10",
     "next": "14.1.2",
