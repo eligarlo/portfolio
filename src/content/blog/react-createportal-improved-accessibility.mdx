@@ -1,0 +1,91 @@
+---
+title: "Unlocking Improved Accessibility with React's createPortal Method"
+summary: 'This blog post explores the use of `createPortal` method in React, a feature that allows developers to render components outside the main content flow of a web page. It discusses the benefits of using `createPortal`, particularly in improving accessibility, and contrasts it with `createRoot`. The post is ideal for developers looking to enhance the accessibility of their React applications.'
+publishedAt: '2023-03-18'
+updatedAt: '2023-03-18'
+tags: 'react,accessibility,typescript,javascript'
+status: 'published'
+---
+
+React is a popular JavaScript library that provides developers with a powerful and efficient way to build user interfaces. One of the key features of React is the ability to use a method called _createPortal_ to render components outside the main content flow of a web page. In this blog post, we will explore the benefits of using _createPortal_, how it can help improve accessibility, and how it differs from _createRoot_.
+
+## What is React createPortal?
+
+In React, _createPortal_ is a method that allows developers to render a React component into a container that exists outside of the parent component hierarchy. This is particularly useful when building user interfaces that require the rendering of elements outside the main content flow of the page, such as modal dialogs, tooltips, and dropdown menus.
+
+The syntax for using _createPortal_ is straightforward. You can use it by importing the method from the _react-dom_ package, and passing in the component that you want to render, along with a reference to the container where you want to render it. Here's an example:
+
+```jsx
+import { createPortal } from 'react-dom'
+
+type MyModalProps = {
+  title: string
+  description: string
+}
+
+const modalRoot = document.getElementById('modal-root') || document.body
+
+const MyModal = ({ title, description }: MyModalProps) => {
+  return createPortal(
+    <div className="modal">
+      <h2>{title}</h2>
+      <p>{description}</p>
+    </div>,
+    modalRoot
+  )
+}
+
+export default MyModal
+```
+
+In this example, we're using _createPortal_ to render a _MyModal_ component into a container with the ID of _modal-root_. This container can be located anywhere in the HTML of the web page, and the _MyModal_ component will be rendered inside of it, outside of the main content flow of the page.
+
+## Accessibility Benefits of React createPortal
+
+One of the key benefits of using _createPortal_ is that it can help improve accessibility in your React application. When using _createPortal_, the focus is automatically shifted to the new component when it's rendered, making it clear to users that they are interacting with a separate element on the page. This can help prevent confusion for users who rely on assistive technologies, like screen readers or keyboard navigation.
+
+In addition to this, _createPortal_ also helps prevent accessibility issues that can arise when using traditional CSS techniques to position elements outside of the main content flow. For example, if you use absolute positioning to display a modal dialog, the dialog may not be visible to users who are navigating the page with a keyboard. _createPortal_ avoids this issue by rendering the modal outside of the main content flow, but still keeping it part of the React tree.
+
+## How is createPortal Different from createRoot?
+
+While _createPortal_ and _createRoot_ are both methods provided by React to help developers manage the rendering of components, they have different use cases and behaviors.
+
+As mentioned earlier, _createPortal_ is used to render a React component into a container that exists outside of the parent component hierarchy. This is useful when you need to render UI components outside the main content flow of the page.
+
+On the other hand, _createRoot_ is used to render a React tree into a container that is not yet attached to the DOM. This is useful for server-side rendering, where you need to generate HTML markup on the server and send it to the client. It's also useful for pre-rendering components that will be mounted later in the application lifecycle.
+
+Here's an example of how to use _createRoot_ to render a React component:
+
+```jsx
+import ReactDOM from 'react-dom/client'
+
+const MyComponent = () => {
+	return (
+		<div>
+			<h1>Hello World!</h1>
+			<p>This is an example of using createRoot to render a component.</p>
+		</div>
+	)
+}
+
+const rootElement = document.getElementById('root') || document.body
+
+const root = ReactDOM.createRoot(rootElement)
+
+root.render(<MyComponent />)
+```
+
+In this example, we're using _createRoot_ to render a _MyComponent_ component into a container with the ID of _root_. This container doesn't exist yet in the DOM, so we use _createRoot_ to create it and then render the component inside of it.
+
+It's important to note that _createRoot_ is only available in React version 18 and later, so if you're using an earlier version of React, you won't be able to use this method.
+
+## Conclusion
+
+In summary, _createPortal_ and _createRoot_ are two powerful methods provided by React to help developers manage the rendering of components. _createPortal_ is used to render components outside of the main content flow of a web page, which can help improve accessibility and prevent issues with positioning elements using traditional CSS techniques. On the other hand, `createRoot` is used to render a React tree into a container that is not yet attached to the DOM, which is useful for server-side rendering and pre-rendering components.
+
+By using these methods, you can create more robust and efficient user interfaces in your React applications.
+
+> If you found it useful, like, subscribe, and share the knowledge.
+> You can also find me on Twitter [@eligarlo][twitter profile].
+
+[twitter profile]: https://twitter.com/intent/user?screen_name=eligarlo

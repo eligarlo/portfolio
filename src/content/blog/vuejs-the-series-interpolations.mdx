@@ -1,0 +1,171 @@
+---
+title: 'VueJs - Interpolations'
+summary: 'This post in the VueJs series dives into the concept of Interpolations in Vue. It covers the four types of interpolations: Text, JavaScript Expressions, Raw HTML, and Attributes. A must-read for those looking to understand and effectively use Vue\'s "Mustache" syntax.'
+publishedAt: '2020-08-28'
+updatedAt: '2020-08-28'
+tags: 'vue,vue.js,javascript,beginner developers,tutorial'
+status: 'published'
+---
+
+### Hi _vue_ and welcome to **VueJs, The Series** 🚀
+
+---
+
+> **Spoiler alert**🚨: In case you missed [VueJs - Getting Started][previous episode] go and check it out.
+
+## What is Interpolation?
+
+When we talk about interpolation, aka "String Interpolation", we talk about the "Mustache" syntax we saw in the [previous episode][previous episode], `{{ }}`.
+
+There are 4 types of interpolations:
+
+1. Text
+2. JavaScript Expressions
+3. Raw HTML
+4. Attributes
+
+## Text
+
+We already saw it when we had this HTML.
+
+```html
+<div id="app">
+	<h1>{{ title }}</h1>
+</div>
+```
+
+Let's also bring our Vue instance for reference.
+
+```javascript
+new Vue({
+	el: '#app',
+	data: {
+		title: "I'm Interpolating!",
+	},
+})
+```
+
+We see that Vue is accessing the _data_ property inside our Vue instance, is grabbing the _title_ and 'binding' it's value inside our `{{ title }}`. That's it, there is nothing else to see here. 👀
+
+## JavaScript Expressions
+
+Vue supports JavaScript expressions, so basically we can throw any JavaScript code inside.
+
+```jsx
+<div id="app">
+	<div>2 * 2 = {{ 2 * 2 }}</div>
+	<div>Today is {{ new Date().toDateString() }}</div>
+	// It also works with ternary expressions
+	<div>And the output is: {{ foo ? 'bar' : 'baz' }}</div>
+</div>
+```
+
+The output of the ternary? 🤷‍♂️
+
+It will be _baz_ because _foo_ is undefined in our Vue instance, so is evaluated as false.
+
+> ⚠Attention⚠, Vue will bind only one single expression, so the following code won't run.
+
+```html
+<div id="app">
+	<div>{{ let myVariable = 'be' }}</div>
+	<div>{{ if (foo) { return 'bar' } }}</div>
+</div>
+```
+
+The code above won't work because neither is JavaScript Expressions.
+
+## Raw HTML
+
+Until here we saw that whatever was inside our Mustache `{{ }}` was text, or interpreted as text, but what about if we want to bind some HTML? Imagine that we have a JSON where we have stored the content of the website, or we fetch it from the back-end. Most of the time, we will store the content as plain text, but sometimes we might get HTML instead.
+
+For this, we will need to use the `v-html` **directive**. Don't worry, for now, we'll cover what directives are.
+
+For the purpose of these tutorial let's put that HTML in our _title_ :
+
+```javascript
+new Vue({
+	el: '#app',
+	data: {
+		title: "<h1 style='color: blue;'>I'm Interpolating!</h1>",
+	},
+})
+```
+
+In our HTML now we don't need to grab the `{{ title }}` inside the `h1` tag.
+
+```html
+<div id="app">{{ title }}</div>
+```
+
+As explained before, Vue will interpret this as text so the output will be 👇
+
+<Image
+	alt={`Interpolations`}
+	src={`https://res.cloudinary.com/dccbkv4k0/image/upload/v1710323143/PxQfY7mA2_gfhj1n.jpg`}
+	width={672}
+	height={139}
+	priority
+/>
+
+What we need to do in order to see our HTML as HTML is the following:
+
+```html
+<div id="app">
+	<span v-html="title"></span>
+</div>
+```
+
+We used an HTML tag, in this case, a `span`, inside its opening tag we added our directive `v-html`, and as a value, we passed our `title`. What Vue will do is to pass that value of `title` inside the span. Let's see if this time worked 👇
+
+<Image
+	alt={`Interpolations-2`}
+	src={`https://res.cloudinary.com/dccbkv4k0/image/upload/v1710322916/GwUuAv-cQ_f4fl1e.jpg`}
+	width={672}
+	height={139}
+	priority
+/>
+
+## Attributes
+
+As we saw with the `v-html`, there are times when we need to pass certain values to our HTML, for that, we use directives. Imagine we have to put a dynamic `id`, inside of a `div` in our HTML. For this, we can use the `v-bind` directive. Again, don't worry, **directives will be cover in future episodes of this series**.
+
+The syntax is quite similar as the previous example.
+
+```html
+<div id="app">
+	<span v-bind:id="dynamicId"></span>
+</div>
+```
+
+Look how we add `:id` after `v-bind` to tell Vue that what we want will be this `<span id="1"></span>`, well if dynamicId had the value of 1 😅
+
+And we can do more with `v-bind`. Imagine we have a button that we want to show as disabled. All we have to do is to add `:disabled` at the end of `v-bind`. But for this, we won't give a value that Vue can interpret as a string. Vue needs to know if we want this button to be disabled, YES or NO, so will check if the value is true or false.
+
+```html
+<div id="app">
+	<button v-bind:disabled="isButtonDisabled">Sign In</button>
+</div>
+```
+
+In our case, `isButtonDisabled` is `undefined`, so Vue won't even render the attribute disabled, and this will happen if the value is also `null` or `false`.
+
+## Conclusion
+
+In this episode we covered the following:
+
+1. We can do interpolations as plain **Text** with Mustache syntax `{{ }}`.
+2. Inside the Mustache syntax we can have **JavaScript Expressions**.
+3. To render **Raw HTML** we need the `v-html` directive.
+4. We can dynamically change **Attributes** with the `v-bind` directive.
+
+[GitHub repo][repository] for the code used in this episode.
+
+---
+
+> **Did you enjoy this article?** Don't be selfish, go on and share the knowledge!
+> You can also find me on Twitter [@eligarlo][twitter profile].
+
+[repository]: https://github.com/eligarlo/VueJs-The-Series/tree/master/Episode%202%20-%20Interpolations
+[twitter profile]: https://twitter.com/intent/user?screen_name=eligarlo
+[previous episode]: /blog/vuejs-the-series-getting-started

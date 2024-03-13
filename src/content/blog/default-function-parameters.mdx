@@ -1,0 +1,68 @@
+---
+title: 'Default Function Parameters'
+summary: 'This post delves into the use of default function parameters in JavaScript, a feature introduced in ES2015 (ES6). It discusses how this feature can simplify function argument validation, using a Tip Calculator as an example. The post is ideal for developers looking to understand and utilize this ES6 feature for cleaner, more efficient code.'
+publishedAt: '2020-12-07'
+updatedAt: '2020-12-07'
+tags: 'javascript,web development,es6,es2015'
+status: 'published'
+---
+
+We always have to validate if the arguments passed in a function have a value or they are `undefined` but, do we really?
+
+## Introduction
+
+In my last post, I talked about [Destructuring Assignment In A Function Parameter][prev post] and why it is handy when you have optional parameters in a function and don't want to pass `undefined` or `null`.
+
+With that been said, what if you have a function where all the parameters are required? Again, since ES2015 (aka ES6) this can be easily implemented. Let's dive in.
+
+## Use Case
+
+If you take a Tip Calculator project as an example, you probably will need always the same parameters:
+
+1. Bill Amount.
+2. Number of People.
+3. Service Quality.
+
+The function you'll need would look like this 👇
+
+```javascript
+function calculateTip(totalBill, numOfPeople, serviceQuality) {
+	// Your validation here
+	// Your code here
+}
+
+console.log(calculateTip(50, 2, 0.2))
+// 5.00
+```
+
+Inside the function, you'll have to do all the calculations **AND** all the validation; plus, most of the time I go with the same friend (2 people) and leave the standard tip (20%).
+
+In this case, the only parameter that will be changing all the time will be the bill amount.
+
+So, let's give _numOfPeople_ and _serviceQuality_ a default parameter:
+
+```javascript
+function calculateTip(totalBill, numOfPeople = 2, serviceQuality = 0.2) {
+	// Your code here
+}
+
+console.log(calculateTip(50))
+// 5.00
+console.log(calculateTip(75))
+// 7.50
+```
+
+Now, just when someone else is joining, or we want to leave a different tip percentage, it will be necessary to pass the rest of the arguments.
+
+## Conclusion
+
+You don't really need to check if the argument in a function is `undefined`, you can create a default value for it.
+
+When a different value is provided, the default value will be overwritten.
+
+> If you found it useful, please like, subscribe, and share the knowledge.
+
+> You might like what I share on [my Twitter][Twitter profile] too.
+
+[prev post]: https://blog.eligarlo.dev/destructuring-assignment-in-a-function-parameter
+[Twitter profile]: https://twitter.com/intent/user?screen_name=eligarlo

@@ -1,0 +1,125 @@
+---
+title: 'VueJs - Getting Started'
+summary: 'This introductory post to the VueJs series covers the basics of setting up Vue in your machine using CDN, and preparing your environment with `index.html` and `app.js` files. Ideal for beginners in Vue and JavaScript.'
+publishedAt: '2020-08-13'
+updatedAt: '2020-08-13'
+tags: 'vue,vue.js,javasript,beginner developers,tutorial'
+status: 'published'
+---
+
+<Callout>
+	“_To get started with Vue, all you need is familiarity with HTML and JavaScript. With these basic
+	skills, you can start building non-trivial applications within less than a day_”- **VueJs Docs**
+</Callout>
+
+### Hi _vue_ and welcome to **VueJs, The Series** 🚀
+
+---
+
+In this first episode we are going to cover the following topics:
+
+1. Getting Vue In Our Machine.
+2. Setting Up Our Environment.
+3. Conclusion.
+
+## Getting Vue In Our Machine
+
+We have a few different ways to install vue as you can see [here][vuejs installation] but for the purpose of this tutorial I'll be using CDN.
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+```
+
+> Don't use this CDN for production.
+
+## Setting Up Our Environment
+
+We will need an _index.html_ and _app.js_ files.
+
+```html
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- VueJs Import -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<title>VueJs - Getting Started</title>
+	</head>
+	<body>
+		<div id="app">
+			<h1>{{ title }}</h1>
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>
+```
+
+Your _index.html_ should look like this ☝
+
+1. Imported VueJs CDN.
+2. Created a div with an id of app.
+3. Inside app created a title.
+
+Let's go over 2 and 3 for a second:
+
+- The div will be under control of the Vue instance.
+- Title uses the special syntax that Vue will recognize and interpolate from our Vue instance.
+
+Your _app.js_ should look like this 👇
+
+```javascript
+new Vue({
+	el: '#app',
+	data: {
+		title: 'Hello World!',
+	},
+})
+```
+
+Hold your 🏇🏇, WHAT?
+
+We created our Vue instance with _new Vue()_ that takes an object as an argument.
+
+Then we have the _el_ and _data_ properties. All properties (there are more and we will see them in this series) have reserved names that Vue will recognize.
+
+In the _el_ property we need to pass the html \_el_ement that we want the Vue instance to take control.
+
+In the _data_ property we store all the data we want to use in our Vue instance. Think of the properties store inside the data object as variables, you can have strings, booleans, arrays...
+In our case the data property is the string Hello world, very creative right?
+
+Ok, so let's open our html file and see what we got there.
+
+<Image
+	alt={`Hello World! text in the browser`}
+	src={`https://res.cloudinary.com/dccbkv4k0/image/upload/v1710323284/q74kcbsk59ta72r19qx9_z2ku3q.png`}
+	width={672}
+	height={139}
+	priority
+/>
+
+Congratulations, we created our first VueJs app! 🎉🥳
+
+## Conclusion
+
+In this episode we covered the following:
+
+1. We installed the VueJs framework using CDN.
+2. We created our html template and use the special _\{\{ \}\}_ syntax.
+3. We created our Vue instance and explain about the _el_ and _data_ properties.
+
+> **TODO:** Build this Hello World app by your own but this time instead of using a CDN, installing Vue in a different way.
+
+[Here][vuejs installation] is again the link for the other installation options.
+
+[GitHub repo][repository] for the code used in this episode.
+
+---
+
+> **Did you enjoy this article?** Don't be selfish, go on and share the knowledge!
+> You can also find me on Twitter [@eligarlo][twitter profile].
+
+[vuejs installation]: https://vuejs.org/v2/guide/installation.html
+[repository]: https://github.com/eligarlo/VueJs-The-Series/tree/master/Episode%201%20-%20Getting%20Started
+[twitter profile]: https://twitter.com/intent/user?screen_name=eligarlo

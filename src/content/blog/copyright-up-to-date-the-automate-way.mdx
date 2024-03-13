@@ -1,0 +1,57 @@
+---
+title: 'Copyright Up To Date (The Automate Way)'
+summary: 'This blog post demonstrates how to automate the process of keeping the copyright year up to date on your website. It provides a simple solution using HTML and JavaScript to ensure your copyright disclaimer never appears outdated, enhancing the professional appearance of your site.'
+publishedAt: '2020-10-06'
+updatedAt: '2020-10-06'
+tags: 'html5,javascript,web development,copyright,automation'
+status: 'published'
+---
+
+<Callout>
+	Let's be honest, **outdated copyright disclaimers on a website looks bad**. Looks like the website
+	it's unmaintained on many levels. On the other hand, you don't want to manually update it every
+	1st of January on every website you own right? Let me help you **automate this task with 2 lines
+	of code**. If you want to know more about the importance of updating your copyright dates I found
+	[this post][sonet digital] with a more in-depth explanation.
+</Callout>
+
+First, let's create a basic HTML template where we will have our copyright disclaimer at the footer:
+
+```html
+<body>
+	// Content of your website
+
+	<footer>Copyright © <span id="copyright"></span>, My Company Name</footer>
+
+	<script src="app.js"></script>
+</body>
+```
+
+And then, our javascript will look like this:
+
+```javascript
+const copyright = document.querySelector('#copyright')
+copyright.innerHTML = new Date().getFullYear()
+```
+
+That's it, you are cover now. 😎
+
+Bonus tip:💡
+
+In case you need a range of years instead of a single year in your copyright disclaimer, you can easily tweak the above code.
+
+```html
+<footer>Copyright © <span id="copyright">2010 - </span>, My Company Name</footer>
+```
+
+```javascript
+const copyright = document.querySelector('#copyright')
+copyright.innerHTML += new Date().getFullYear()
+```
+
+---
+
+Thank you for reading, if you like my content, you can always find me on Twitter [@eligarlo][twitter profile].
+
+[sonet digital]: https://sonet.digital/blog/general/keep-copyright-up-to-date/
+[twitter profile]: https://twitter.com/intent/user?screen_name=eligarlo

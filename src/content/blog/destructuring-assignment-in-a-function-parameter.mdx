@@ -1,0 +1,95 @@
+---
+title: 'Destructuring Assignment In A Function Parameter'
+summary: 'This post explores the use of JavaScript destructuring in function parameters, a feature introduced in ES2015 (ES6). It provides a practical example of how to use destructuring in a To-Do app to handle optional parameters, making your code cleaner and more flexible.'
+publishedAt: '2020-11-27'
+updatedAt: '2020-11-27'
+tags: 'javascript,web development,es6,es2015'
+status: 'published'
+---
+
+Have you ever passed an argument as a `null` or `undefined` in a function? Since ES2015 (aka ES6) **you don't have to**. You can use JavaScript destructuring.
+
+## Use Case
+
+We all have this Utils.js file in our projects where we have all kinds of functions that will be used all over the project. Imagine you have a To-Do app and one of those functions was addTodoItem and you had to call this function in different places.
+
+Function declaration would look like this:
+
+```javascript
+function addTodoItem(title, description, dueDate) {
+	// Your code here
+}
+```
+
+Before calling the function, see the characteristics for each parameter:
+
+- Title => required.
+- Description => !required.
+- DueDate => !required.
+
+Let's add a few items to the list now.
+
+```javascript
+addTodoItem('Shopping List', 'eggs, milk', '30-11-2020')
+// { title: 'Shopping List', description: 'eggs, milk', dueDate: '30-11-2020' }
+addTodoItem('Call Mom')
+// { title: 'Call Mom' }
+addTodoItem('Pay Bills', undefined, '01-12-2020')
+// { title: 'Pay Bills', dueDate: '01-12-2020' }
+```
+
+If we pay attention to the last example, we can see that on the first day of the month I need to pay my bills. 🤣
+
+Jokes aside, we see that I had to pass the second value as `undefined` because the function is expecting the description as the second parameter.
+
+For this specific example, if I wanted to pass a dueDate, first I would have to check whether the description is `undefined` or not before I call the addTodoItem function.
+
+Here is where using destructuring will be very helpful.
+
+This is how the addTodoItem would look now. 👇
+
+```javascript
+function addTodoItem({ title, description, dueDate }) {
+	// Your code here
+}
+```
+
+Let's add again the same items as before.
+
+```javascript
+addTodoItem({ title: 'Shopping List', description: 'eggs, milk', dueDate: '30-11-2020' })
+//	{ title: 'Shopping List', description: 'eggs, milk', dueDate: '30-11-2020' }
+addTodoItem({ title: 'Call Mom' })
+// { title: 'Call Mom' }
+addTodoItem({ title: 'Pay Bills', dueDate: '01-12-2020' })
+//	{ title: 'Pay Bills', dueDate: '01-12-2020' }
+```
+
+If you pay attention to the last item added, you’ll see that there was no need on adding the `undefined` for the description. Just title and dueDate.
+
+## Bonus!
+
+There is more: not only do you not need to pass `undefined` anymore, but you can even change the order of how you pass the arguments and it will still work.
+
+```javascript
+addTodoItem({ description: 'eggs, milk', dueDate: '30-11-2020', title: 'Shopping List' })
+//	{ title: 'Shopping List', description: 'eggs, milk', dueDate: '30-11-2020' }
+addTodoItem({ title: 'Call Mom' })
+//	{ title: 'Call Mom' }
+addTodoItem({ dueDate: '01-12-2020', title: 'Pay Bills' })
+//	{ title: 'Pay Bills', dueDate: '01-12-2020' }
+```
+
+## Conclusion
+
+That's it! We saw how to use destructuring when declaring a function and how to call that function and provide the arguments.
+
+Remember that you can get rid of the `undefined` or `null` since the order of the arguments doesn't matter.
+
+PS. Remember to pay your bills. 🤣
+
+> If you found it useful, please like, subscribe, and share the knowledge.
+
+> You might like what I share on [my Twitter][Twitter profile] too.
+
+[Twitter profile]: https://twitter.com/intent/user?screen_name=eligarlo

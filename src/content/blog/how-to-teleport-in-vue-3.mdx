@@ -1,0 +1,75 @@
+---
+title: 'How to Teleport in Vue 3'
+summary: 'This blog post introduces the `teleport` component, a new feature in Vue 3. It discusses the common practice of injecting JavaScript code into a single div in modern web applications, and how the `teleport` component can be used to display an element as a sibling of the main `#app` element. The post uses a loader or a modal as an example.'
+publishedAt: '2021-01-21'
+updatedAt: '2021-01-21'
+tags: 'vue,vue.js,javascript,web development,tutorial'
+status: 'published'
+---
+
+A few days ago I decided it was time for me to update myself to the new version of Vuejs, Vue 3. And today I wanted to share with you the first thing I learn that version two didn't have, the _teleport_ component.
+
+It's well known that modern web applications fit in a div.
+
+<StaticTweet id='1346423883285499904' />
+
+Ok, React uses _#root_ and Vue uses _#app_ but they just do the same, which is inject the JavaScript code into that div. So here it comes the question:
+
+## What if I have an element I want to display as a sibling of the _#app_ element in the html?
+
+Sometimes we have a loader or a modal (aka popup) component that is not part of the app, but anyway, it will be injected inside the _#app_ element. Thus, the html will look like this:
+
+```html
+<html>
+	<body>
+		<div id="app">
+			<!-- Other injected HTML here -->
+			<div class="loader">
+				<!-- HTML for the loader goes here -->
+			</div>
+		</div>
+	</body>
+</html>
+```
+
+### Let's teleport!
+
+<Image
+	alt={`Goku Teleport`}
+	src={`https://media.giphy.com/media/cW55zyF7dJAf6/giphy.gif`}
+	width={500}
+	height={271}
+	priority
+/>
+
+To use the teleport component in your app, you need to first, add a sibling to the _#app_ element in the html.
+
+```html
+<html>
+	<body>
+		<div id="app"></div>
+		<!-- built files will be auto injected -->
+		<div class="loader"></div>
+		<!-- loader component will be injected here -->
+	</body>
+</html>
+```
+
+Once you've done that, go to your _.vue_ file and use the teleport component:
+
+```html
+<template>
+	<teleport to=".loader" v-if="showLoader">
+		<Loader />
+	</teleport>
+	<!-- The logic of your component goes below -->
+</template>
+```
+
+And that's it. Now, when the showLoader condition is met, the loader will show in the specified html element. Notice that I used a CSS selector so if the element was an id, I could have done it like this: `<teleport to="#loader" v-if="showLoader">`
+
+> If you found it useful, please like, subscribe, and share the knowledge.
+
+> You might like what I share on [my Twitter][Twitter profile] too.
+
+[Twitter profile]: https://twitter.com/intent/user?screen_name=eligarlo
