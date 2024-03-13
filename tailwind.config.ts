@@ -11,6 +11,13 @@ const config: Config = {
 				'background-primary': 'var(--background-primary)',
 				'background-secondary': 'var(--background-secondary)',
 				'background-footer': 'var(--background-footer)',
+				'background-code-editor': 'var(--background-code-editor)',
+				'hover-background': 'var(--hover-background)',
+				white: '#ffffff',
+			},
+			fontFamily: {
+				montserrat: 'var(--font-family-primary)',
+				nunito: 'var(--font-family-secondary)',
 			},
 			typography: {
 				quoteless: {

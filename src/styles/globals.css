@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+*::-moz-selection {
+	/* Code for Firefox */
+	background-color: var(--text-secondary);
+	color: var(--background-primary);
+}
+
+::selection {
+	background-color: var(--text-secondary);
+	color: var(--background-primary);
+}
+
+/* https://www.npmjs.com/package/sugar-high */
+/* Check sh classes */
+:root {
+	--text-primary: #d4d4d4;
+	--text-secondary: #cea716;
+	--background-primary: #0e1014;
+	--background-secondary: #383542;
+	--background-footer: #3b4157;
+	--background-code-editor: #282c3d;
+	--hover-background: #1c1c20;
+	--sh-class: #82aaff;
+	--sh-identifier: #bfc7d5;
+	--sh-sign: #8996a3;
+	--sh-property: #ffcb6b;
+	--sh-entity: #ff5572;
+	--sh-jsxliterals: #bfc7d5;
+	--sh-string: #c3e88d;
+	--sh-keyword: #89ddff;
+	--sh-comment: #a19595;
+}
+
+html,
+body {
+	max-width: 100vw;
+	font-size: 16px;
+	font-family: var(--font-family-primary), var(--font-family-secondary), '-apple-system',
+		'BlinkMacSystemFont', '"Segoe UI"', '"Helvetica Neue"', 'Arial', 'sans-serif',
+		'"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"';
+}
+
+.prose .anchor {
+	@apply absolute invisible no-underline;
+
+	margin-left: -1em;
+	padding-right: 0.5em;
+	width: 80%;
+	max-width: 700px;
+	cursor: pointer;
+	color: var(--text-primary);
+}
+
+.anchor:hover {
+	@apply visible;
+}
+
+.prose a {
+	@apply transition-all decoration-neutral-600 underline-offset-2 decoration-[0.1em];
+}
+
+.prose .anchor:after {
+	@apply text-neutral-700;
+	content: '#';
+}
+
+.prose *:hover > .anchor {
+	@apply visible;
+}
+
+.prose pre {
+	@apply bg-background-code-editor rounded-lg overflow-x-auto border border-background-code-editor;
+}
+
+.prose code {
+	@apply px-1 py-0.5 rounded-lg;
+}
+
+.prose pre code {
+	@apply p-0;
+	border: initial;
+	line-height: 1.5;
+	counter-reset: sh-line-number;
+}
+
+.sh__line::before {
+	counter-increment: sh-line-number 1;
+	content: counter(sh-line-number);
+	margin-right: 24px;
+	text-align: right;
+	color: #a4a4a4;
+}
+
+.sh__line:only-child:before {
+	content: none;
+}
+
+.prose code span {
+	display: inline-block;
+	height: 0;
+	@apply font-medium;
+}
+
+.prose img {
+	/* Don't apply styles to next/image */
+	@apply m-0;
+}
+
+.prose h2,
+h3,
+h4 {
+	@apply font-medium tracking-tighter !important;
+}
+
+.prose strong {
+	@apply font-medium;
+}
+
+.prose > :first-child {
+	/* Override removing top margin, causing layout shift */
+	margin-top: 1.25em !important;
+	margin-bottom: 1.25em !important;
+}
+
+pre {
+	scrollbar-color: #694ca4cc #694ca466;
+	scrollbar-width: thin;
+}
+
+/* Remove Safari input shadow on mobile */
+input[type='text'],
+input[type='email'] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.prose .tweet a {
+	text-decoration: inherit;
+	font-weight: 500;
+}
+
+table {
+	display: block;
+	max-width: fit-content;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.prose .callout > p {
+	margin: 0 !important;
+}
+
+.title {
+	text-wrap: balance;
+}
