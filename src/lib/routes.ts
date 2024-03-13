@@ -7,12 +7,16 @@ export const navItems = {
 	},
 }
 
-const ROUTES: Record<StaticPagesType, string> = {
+const ROUTES: Record<PagesType, string> = {
 	home: '/',
 	blog: '/blog',
 	tag: '/blog/tag',
 }
 
-export type StaticPagesType = 'home' | 'blog' | 'tag'
+export type PagesType = StaticPagesType | DynamicPagesType
+
+export type StaticPagesType = 'home' | 'blog'
+
+export type DynamicPagesType = 'tag'
 
 export default ROUTES

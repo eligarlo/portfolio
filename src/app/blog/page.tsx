@@ -1,5 +1,10 @@
+import { Metadata } from 'next'
+
 import { getPublishedBlogPosts } from '@/db/blog'
+import METATAGS from '@/lib/meta-tags'
 import Posts from '@/components/blog/posts'
+
+export const metadata: Metadata = METATAGS['blog']
 
 export default async function BlogPage() {
 	const posts = getPublishedBlogPosts()
