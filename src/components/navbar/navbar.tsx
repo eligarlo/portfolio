@@ -3,9 +3,9 @@ import Link from 'next/link'
 import { navItems } from '@/lib/routes'
 import './navbar.css'
 
-export function Navbar() {
+export default function Navbar() {
 	return (
-		<aside className='mb-20 tracking-tight max-w-2xl mx-auto pt-2'>
+		<aside className='mb-10 md:mb-20 tracking-tight max-w-2xl mx-auto pt-2'>
 			<div className='lg:sticky lg:top-20'>
 				<nav
 					className='flex flex-row items-start px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative'

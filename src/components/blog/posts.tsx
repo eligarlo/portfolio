@@ -37,7 +37,7 @@ export default function Posts({ posts }: PostsProps) {
 			{posts.map(post => {
 				return (
 					<li key={post.slug}>
-						<div className='relative flex flex-col justify-between duration-300 md:max-w-xl md:hover:bg-hover-background md:p-4 rounded-lg cursor-pointer'>
+						<div className='relative flex flex-col duration-300 md:max-w-xl md:hover:bg-hover-background md:p-4 rounded-lg cursor-pointer'>
 							<Link href={`${ROUTES.blog}/${post.slug}`}>
 								<p className='tracking-tight'>{post.metadata.title}</p>
 								<span aria-hidden='true' className='absolute inset-0'></span>

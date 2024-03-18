@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation'
 import { getBlogPost, getPublishedBlogPosts } from '@/db/blog'
 import { isProduction, formatDate, readingTime } from '@/lib/utils'
 import ROUTES from '@/lib/routes'
+import { BRAND_NAME } from '@/lib/constants'
 import IncrementPostView from '@/components/blog/increment-post-view'
 import Views from '@/components/blog/views'
 import CustomMDX from '@/components/mdx/mdx'
@@ -83,7 +84,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
 						url: `${process.env.NEXT_PUBLIC_ORIGIN}/blog/${post.slug}`,
 						author: {
 							'@type': 'Person',
-							name: 'Eliahu Garcia Lozano',
+							name: BRAND_NAME,
 						},
 					}),
 				}}

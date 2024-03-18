@@ -1,2 +1,5 @@
 export const BASE_URL = 'https://www.eligarlo.dev'
 export const BRAND_NAME = 'Eliahu Garcia Lozano'
+export const TWITTER_FOLLOW_URL = 'https://twitter.com/intent/user?screen_name=eligarlo'
+export const TWITTER_URL = 'https://twitter.com/eligarlo'
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/eliahu-garcia-lozano/'

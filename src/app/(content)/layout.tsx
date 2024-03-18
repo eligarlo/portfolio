@@ -1,4 +1,5 @@
-import { Navbar } from '@/components/navbar/navbar'
+import Navbar from '@/components/navbar/navbar'
+import Footer from '@/components/footer/footer'
 
 export default function ContentLayout({
 	children,
@@ -10,6 +11,8 @@ export default function ContentLayout({
 			<Navbar />
 
 			<main>{children}</main>
+
+			<Footer />
 		</>
 	)
 }
