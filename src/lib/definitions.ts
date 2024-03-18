@@ -1,6 +1,6 @@
 export type PostMetadata = {
 	title: string
-	summary: string
+	description: string
 	publishedAt: string
 	updatedAt: string
 	tags: string

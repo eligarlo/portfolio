@@ -12,5 +12,6 @@
 	"redhat.telemetry.enabled": false,
 	"cSpell.language": "en,es",
 	"eslint.format.enable": true,
-	"emmet.triggerExpansionOnTab": true
+	"emmet.triggerExpansionOnTab": true,
+	"frontMatter.git.enabled": true
 }

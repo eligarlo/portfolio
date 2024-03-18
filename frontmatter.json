@@ -1,0 +1,52 @@
+{
+	"$schema": "https://frontmatter.codes/frontmatter.schema.json",
+	"frontMatter.taxonomy.contentTypes": [
+		{
+			"name": "default",
+			"pageBundle": false,
+			"previewPath": null,
+			"fields": [
+				{
+					"title": "title",
+					"name": "title",
+					"type": "string"
+				},
+				{
+					"title": "description",
+					"name": "description",
+					"type": "string"
+				},
+				{
+					"title": "publishedAt",
+					"name": "publishedAt",
+					"type": "datetime"
+				},
+				{
+					"title": "updatedAt",
+					"name": "updatedAt",
+					"type": "datetime"
+				},
+				{
+					"title": "tags",
+					"name": "tags",
+					"type": "string",
+					"single": true
+				},
+				{
+					"title": "status",
+					"name": "status",
+					"type": "string"
+				}
+			]
+		}
+	],
+	"frontMatter.framework.id": "next",
+	"frontMatter.content.publicFolder": "public",
+	"frontMatter.preview.host": "http://localhost:3000",
+	"frontMatter.content.pageFolders": [
+		{
+			"title": "blog",
+			"path": "[[workspace]]/src/content/blog"
+		}
+	]
+}

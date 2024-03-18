@@ -20,7 +20,7 @@ export async function generateMetadata({
 		return
 	}
 
-	const { title, publishedAt: publishedTime, summary: description, image } = post.metadata
+	const { title, publishedAt: publishedTime, description, image } = post.metadata
 	const ogImage = isProduction()
 		? `${process.env.NEXT_PUBLIC_ORIGIN}/images/og/blog/${image}`
 		: `${process.env.VERCEL_BRANCH_URL}/images/og/blog/${image}`
@@ -78,7 +78,7 @@ export default async function Blog({ params }: { params: { slug: string } }) {
 						headline: post.metadata.title,
 						datePublished: post.metadata.publishedAt,
 						dateModified: post.metadata.updatedAt,
-						description: post.metadata.summary,
+						description: post.metadata.description,
 						image: `${process.env.NEXT_PUBLIC_ORIGIN}/images/og/blog/${post.metadata.image}`,
 						url: `${process.env.NEXT_PUBLIC_ORIGIN}/blog/${post.slug}`,
 						author: {
