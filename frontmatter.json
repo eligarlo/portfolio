@@ -9,7 +9,8 @@
 				{
 					"title": "title",
 					"name": "title",
-					"type": "string"
+					"type": "string",
+					"single": true
 				},
 				{
 					"title": "description",
@@ -19,12 +20,14 @@
 				{
 					"title": "publishedAt",
 					"name": "publishedAt",
-					"type": "datetime"
+					"type": "datetime",
+					"isPublishDate": true
 				},
 				{
 					"title": "updatedAt",
 					"name": "updatedAt",
-					"type": "datetime"
+					"type": "datetime",
+					"isModifiedDate": true
 				},
 				{
 					"title": "tags",
@@ -35,7 +38,8 @@
 				{
 					"title": "status",
 					"name": "status",
-					"type": "string"
+					"type": "choice",
+					"choices": ["draft", "published", "archived"]
 				}
 			]
 		}
