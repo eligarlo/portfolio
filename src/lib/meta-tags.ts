@@ -87,13 +87,13 @@ export const getMetaData = (
 const METATAGS: Record<StaticPagesType, Metadata> = {
 	home: getMetaData(
 		ROUTES.home,
-		'home.png',
+		'og-default.png',
 		`${BRAND_NAME}'s Website`,
 		'This is my personal website where I share my thoughts and experiences about web development, programming, and software development.'
 	),
 	blog: getMetaData(
 		ROUTES.blog,
-		'blog.png',
+		'og-default.png',
 		`Blog | ${BRAND_NAME}'s Website`,
 		'This is my blog where I write about web development, programming, and software development.'
 	),
