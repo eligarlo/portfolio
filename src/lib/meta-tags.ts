@@ -89,13 +89,13 @@ const METATAGS: Record<StaticPagesType, Metadata> = {
 		ROUTES.home,
 		'og-default.png',
 		`${BRAND_NAME}'s Website`,
-		'This is my personal website where I share my thoughts and experiences about web development, programming, and software development.'
+		'Welcome to my website! Discover my projects, learn from my blog posts on web development, and get to know more about my journey in the tech industry.'
 	),
 	blog: getMetaData(
 		ROUTES.blog,
 		'og-default.png',
 		`Blog | ${BRAND_NAME}'s Website`,
-		'This is my blog where I write about web development, programming, and software development.'
+		'Welcome to my blog! Here, I share my insights on web development, programming, and software development. Join me as we explore the latest trends together.'
 	),
 }
 
