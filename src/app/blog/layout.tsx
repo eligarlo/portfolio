@@ -10,7 +10,7 @@ export default function BlogLayout({
 		<>
 			<Navbar />
 
-			<main className='antialiased max-w-2xl flex flex-col mx-4 lg:mx-auto'>
+			<main className='antialiased max-w-2xl flex flex-col mx-1.5 sm:mx-auto'>
 				<section className='flex-auto min-w-0 flex flex-col px-2 md:px-0 pb-8'>{children}</section>
 			</main>
 

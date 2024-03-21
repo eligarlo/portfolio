@@ -7,39 +7,52 @@
 			"previewPath": null,
 			"fields": [
 				{
-					"title": "title",
+					"title": "Title",
 					"name": "title",
 					"type": "string",
 					"single": true
 				},
 				{
-					"title": "description",
+					"title": "Description",
 					"name": "description",
 					"type": "string"
 				},
 				{
-					"title": "publishedAt",
+					"title": "Hero Image",
+					"name": "ogImage",
+					"type": "string",
+					"single": true
+				},
+				{
+					"title": "Publishing date",
 					"name": "publishedAt",
 					"type": "datetime",
 					"isPublishDate": true
 				},
 				{
-					"title": "updatedAt",
+					"title": "Updated date",
 					"name": "updatedAt",
 					"type": "datetime",
 					"isModifiedDate": true
 				},
 				{
-					"title": "tags",
+					"title": "Tags",
 					"name": "tags",
 					"type": "string",
 					"single": true
 				},
 				{
-					"title": "status",
+					"title": "Status",
 					"name": "status",
 					"type": "choice",
 					"choices": ["draft", "published", "archived"]
+				},
+				{
+					"title": "Featured",
+					"name": "featured",
+					"type": "choice",
+					"choices": ["", "1", "2", "3"],
+					"default": ""
 				}
 			]
 		}

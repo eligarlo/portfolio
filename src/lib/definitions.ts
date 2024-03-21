@@ -1,11 +1,12 @@
 export type PostMetadata = {
 	title: string
 	description: string
+	ogImage: string
 	publishedAt: string
 	updatedAt: string
 	tags: string
 	status: string
-	image: string
+	featured: string
 }
 
 export type BlogPost = {
