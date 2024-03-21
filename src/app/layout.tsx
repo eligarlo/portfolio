@@ -1,7 +1,9 @@
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 
 import { montserrat, nunitoSans } from '@/lib/fonts'
 import { defaultMetadata } from '@/lib/meta-tags'
+import TagManager from '@/components/tag-manager/tag-manager'
 import '@/styles/globals.css'
 
 export const metadata: Metadata = defaultMetadata
@@ -22,7 +24,11 @@ export default function RootLayout({
 				nunitoSans.variable
 			)}
 		>
-			<body>{children}</body>
+			<body>
+				<TagManager />
+				{children}
+				<Analytics />
+			</body>
 		</html>
 	)
 }
