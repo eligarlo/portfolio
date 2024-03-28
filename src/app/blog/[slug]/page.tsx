@@ -1,13 +1,12 @@
 import { Suspense } from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 
 import { getBlogPost, getPublishedBlogPosts } from '@/db/blog'
 import { formatDate, readingTime } from '@/lib/utils'
-import ROUTES from '@/lib/routes'
 import { BRAND_NAME } from '@/lib/constants'
+import GoBack from '@/components/buttons/go-back'
 import IncrementPostView from '@/components/blog/increment-post-view'
 import Views from '@/components/blog/views'
 import CustomMDX from '@/components/mdx/mdx'
@@ -89,9 +88,9 @@ export default async function Blog({ params }: { params: { slug: string } }) {
 
 			<IncrementPostView slug={post.slug} />
 
-			<Link href={ROUTES.blog} className='mb-4'>
-				Go back
-			</Link>
+			<span>
+				<GoBack className='mb-4' />
+			</span>
 
 			{post.metadata.ogImage && (
 				<Image

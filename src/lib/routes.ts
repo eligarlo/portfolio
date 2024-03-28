@@ -10,19 +10,15 @@ export const navItems = {
 export const footerItems = {
 	'/blog': {
 		name: 'Latest Posts',
-		isInternal: true,
 	},
 	'https://twitter.com/eligarlo': {
 		name: 'Twitter',
-		isInternal: false,
 	},
 	'https://www.github.com/eligarlo': {
 		name: 'GitHub',
-		isInternal: false,
 	},
 	'https://www.linkedin.com/in/eliahu-garcia-lozano/': {
 		name: 'LinkedIn',
-		isInternal: false,
 	},
 }
 

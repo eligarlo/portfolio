@@ -63,6 +63,16 @@ export function getBlogPostByTag(tag: string) {
 	return getAllBlogPosts().filter(post => post.metadata.tags.toLowerCase().includes(tag))
 }
 
+export function getFeaturedBlogPosts() {
+	const sortedPosts = getAllBlogPosts()
+		.filter(post => post.metadata.featured !== '')
+		.sort((a, b) => (a.metadata.featured > b.metadata.featured ? 1 : -1))
+
+	const [firstPost, secondPost, thirdPost] = sortedPosts
+
+	return { firstPost, secondPost, thirdPost }
+}
+
 export function getTagsFromBlogPosts() {
 	const posts = getAllBlogPosts()
 	const tags = posts.map(post => post.metadata.tags.split(',')).flat()
